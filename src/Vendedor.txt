@@ -1,0 +1,4 @@
+idVendedor;cnpj;nome;endereco;setor
+1;72839473629;Amazon;Rua 1;Revenda
+2;02837463829;Shibata;Rua 2;Supermercado
+3;02748392898;Kalunga;Rua 3;Papelaria

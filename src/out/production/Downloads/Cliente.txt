@@ -1,0 +1,4 @@
+idCliente;cpf;nome
+1;1234;Joao Silva
+2;1235;Pedro Nunes
+3;1232;Miguel Ferreira

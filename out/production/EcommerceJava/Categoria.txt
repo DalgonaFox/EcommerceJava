@@ -1,0 +1,4 @@
+idCategoria;percentualComissao;nomeCategoria
+1;55.68;Eletronicos
+2;80.5;Mercearia
+3;92;Hortifruti

@@ -1,0 +1,9 @@
+idProduto;descricaoProduto;idCategoria;preco;
+1;Chuveiro;1;100.00
+2;Sabonete;2;5.00
+3;Mouse;1;40.00
+4;Computador;1;2500.00
+5;Celular;1;750.00
+6;Alface;3;4.00
+7;Tomate;3;2.00
+8;Queijo;2;10.00
