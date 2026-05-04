@@ -1,48 +1,52 @@
 package br.edu.ifsp.xyz.leitor.classe;
 
+import br.edu.ifsp.xyz.leitor.classe.subclasse.ProdutoEletronico;
+import br.edu.ifsp.xyz.leitor.classe.subclasse.ProdutoHortifruti;
+import br.edu.ifsp.xyz.leitor.classe.subclasse.ProdutoMercearia;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Pedido {
-	private int idPedido;
-	private Cliente cliente;
+    private int idPedido;
+    private Cliente cliente;
     private Vendedor vendedor;
     private String dataPedido;
-	private Item[] itens;
+    private Item[] itens;
     private double valorTotal;
     private int qtItens;
     private static ArrayList<String> pedidos;
 
-	public Pedido(String caminho, int chave, String valorChave) throws Exception {
-		Leitor leitor = new Leitor(caminho, chave, valorChave);
-		pedidos = leitor.conteudo();
-		String pedido = pedidos.get(0);
-		String[] campos = pedido.split(";");
+    public Pedido(String caminho, int chave, String valorChave) throws Exception {
+        Leitor leitor = new Leitor(caminho, chave, valorChave);
+        pedidos = leitor.conteudo();
+        String pedido = pedidos.get(0);
+        String[] campos = pedido.split(";");
         this.idPedido = Integer.parseInt(campos[0]);
         String idCliente = campos[1];
-		String idVendedor = campos[2];
-        this.cliente = new Cliente("./src/Cliente.txt", 0, idCliente);
-		this.vendedor = new Vendedor("./src/Vendedor.txt", 0, idVendedor);
+        String idVendedor = campos[2];
+        this.cliente = new Cliente("src/Cliente.txt", 0, idCliente);
+        this.vendedor = new Vendedor("src/Vendedor.txt", 0, idVendedor);
         this.dataPedido = campos[3];
 
-        leitor = new Leitor("./src/Item.txt", 1, this.idPedido+"");
-        
-        ArrayList<String> itens = leitor.conteudo();
-		qtItens = itens.size();
-		this.itens = new Item[qtItens];
+        leitor = new Leitor("src/Item.txt", 1, this.idPedido+"");
 
-		int indice = 0;
-		for (String item : itens) {
-			campos = item.split(";");
-			int idItem = Integer.parseInt(campos[0]);
-			int idPedido = Integer.parseInt(campos[1]);
-			String idProduto = campos[2];
-    		Produto produto = new Produto("./src/Produto.txt", 0, idProduto);
-			int qtVenda = Integer.parseInt(campos[3]);
+        ArrayList<String> itens = leitor.conteudo();
+        qtItens = itens.size();
+        this.itens = new Item[qtItens];
+
+        int indice = 0;
+        for (String item : itens) {
+            campos = item.split(";");
+            int idItem = Integer.parseInt(campos[0]);
+            int idPedido = Integer.parseInt(campos[1]);
+            String idProduto = campos[2];
+            Produto produto = criarProduto(idProduto);
+            int qtVenda = Integer.parseInt(campos[3]);
             valorTotal += produto.getPreco();
-			this.itens[indice] = new Item(idItem,idPedido,produto, qtVenda);
-			indice++;
-		}
+            this.itens[indice] = new Item(idItem,idPedido,produto, qtVenda);
+            indice++;
+        }
     }
 
     @Override
@@ -77,5 +81,20 @@ public class Pedido {
 
     public String getDataCompra() {
         return dataPedido;
+    }
+
+    public Produto criarProduto(String idProduto) throws Exception {
+        Leitor leitor = new Leitor("src/Produto.txt", 0, idProduto);
+        ArrayList<String> pedidos = leitor.conteudo();
+        String produto = pedidos.get(0);
+        String[] campos = produto.split(";");
+        String idCategoria = campos[2];
+
+        return switch(Integer.parseInt(idCategoria)) {
+            case 1 -> new ProdutoEletronico("src/Produto.txt", 0, String.valueOf(idProduto));
+            case 2 -> new ProdutoMercearia("src/Produto.txt", 0, String.valueOf(idProduto));
+            case 3 -> new ProdutoHortifruti("src/Produto.txt", 0, String.valueOf(idProduto));
+            default -> throw new Exception("Categoria Não encontrada.");
+        };
     }
 }

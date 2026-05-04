@@ -5,13 +5,13 @@ import br.edu.ifsp.xyz.leitor.classe.Pedido;
 
 public class ExtratoTeste {
 
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-        Pedido pedido = new Pedido("./src/Pedido.txt", 0, "4");
+        Pedido pedido = new Pedido("src/Pedido.txt", 0, "4");
         Extrato comissao = new Extrato(pedido);
 
         System.out.println("\n--------------Extrato--------------\n\n" + comissao);
-	}
+    }
 
 
 //    ArrayList<String> pedidos = new ArrayList<>();

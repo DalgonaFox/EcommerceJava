@@ -3,7 +3,7 @@ package br.edu.ifsp.xyz.leitor.classe;
 import java.util.ArrayList;
 
 public class Extrato {
-    private static Double comissao;
+    private static Double comissaoTotal;
     private static String nomeVendedor;
     private static int idPedido;
     private static ArrayList<String> produtos;
@@ -12,7 +12,7 @@ public class Extrato {
     private static String dataCompra;
 
     public Extrato(Pedido pedido) {
-        comissao = (double) 0;
+        comissaoTotal = (double) 0;
         nomeVendedor = pedido.getNomeVendedor();
         idPedido = pedido.getIdPedido();
         qtVendidos = pedido.getQtItens();
@@ -25,21 +25,33 @@ public class Extrato {
             Double precoProduto = produto.getPreco();
             Categoria categoria = produto.getCategoria();
             Double percentualComissao = categoria.getPercentualComissao();
-            comissao += ((percentualComissao/100)*precoProduto);
-            produtos.add(produto.getNome());
+            comissaoTotal += ((percentualComissao/100)*precoProduto);
+            produtos.add(String.valueOf(produto));
         }
     }
 
-@Override
+    @Override
     public String toString() {
         return "Vendedor: " + nomeVendedor + "\nPedido Nº" + idPedido + "\nData da Compra: " + dataCompra
-                + "\nProdutos Vendidos: " + produtos + "\nQuantidade de Produtos Vendidos: "
+                + "\n\nProdutos Vendidos: \nidProduto | nomeProduto | nomeCategoria | preco  | taxaImposto | valorImposto | percentualComissao | comissao\n"
+                + printProdutos() + "\nQuantidade de Produtos Vendidos: "
                 + qtVendidos + "\n\nValor total da compra: R$" + String.format("%.2f", valorTotal)
-                + "\nComissão do vendedor: R$" + String.format("%.2f", comissao);
+                + "\nComissão do vendedor: R$" + String.format("%.2f", comissaoTotal);
+
     }
 
     public Double getComissao() {
-        return comissao;
+        return comissaoTotal;
+    }
+
+    public String printProdutos() {
+        String resultado = "";
+
+        for (int i = 0; i < produtos.size(); i++) {
+            resultado += produtos.get(i);
+        }
+
+        return resultado;
     }
 
 

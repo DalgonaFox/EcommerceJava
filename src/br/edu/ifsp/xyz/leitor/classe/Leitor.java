@@ -41,7 +41,7 @@ public class Leitor {
 	}	
 	
     public static void main(String[] args) throws Exception {
-		Leitor leitor = new Leitor("./src/Pedido.txt",0,"2");
+		Leitor leitor = new Leitor("src/Pedido.txt",0,"2");
 		leitor.conteudo();
 	}
 }
