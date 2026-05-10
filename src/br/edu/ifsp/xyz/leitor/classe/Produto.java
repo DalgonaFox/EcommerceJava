@@ -1,8 +1,11 @@
 package br.edu.ifsp.xyz.leitor.classe;
 
+import br.edu.ifsp.xyz.leitor.interfaces.IContabil;
+import br.edu.ifsp.xyz.leitor.interfaces.IImprimir;
+
 import java.util.ArrayList;
 
-public abstract class Produto {
+public abstract class Produto implements IContabil, IImprimir {
     private int idProduto;
     private String descricaoProduto;
     private Categoria categoria;
@@ -20,9 +23,13 @@ public abstract class Produto {
         this.preco = Double.parseDouble(campos[3]);
     }
 
-
     @Override
     public String toString() {
+        return imprimir();
+    }
+
+    @Override
+    public String imprimir() {
         return idProduto + "         | "
                 + descricaoProduto + "      | "
                 + categoria.getNomeCategoria() + "    | R$"
@@ -30,8 +37,10 @@ public abstract class Produto {
                 + taxaImposto() + "%       | R$"
                 + String.format("%.2f", calcularImpostos()) + "       | "
                 + categoria.getPercentualComissao() + "%              | R$"
-                + String.format("%.2f", calcularComissao()) + "\n";
+                + String.format("%.2f", calcularComissao());
     }
+
+    public int getIdProduto() {return idProduto;}
 
     public Double getPreco() {
         return preco;
@@ -41,13 +50,13 @@ public abstract class Produto {
 
     public String getNome() {return descricaoProduto;}
 
-    public abstract Double calcularImpostos();
-
     public abstract Float taxaImposto();
 
+    @Override
+    public abstract Double calcularImpostos();
+
+    @Override
     public Double calcularComissao() {
-        var valorImpostos = calcularImpostos();
-        var comissaoLiquida = getPreco()-valorImpostos;
-        return (categoria.getPercentualComissao()/100)*comissaoLiquida;
+        return (categoria.getPercentualComissao() / 100) * getPreco();
     }
 }

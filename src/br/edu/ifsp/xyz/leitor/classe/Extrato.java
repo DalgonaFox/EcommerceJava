@@ -33,7 +33,7 @@ public class Extrato {
     @Override
     public String toString() {
         return "Vendedor: " + nomeVendedor + "\nPedido Nº" + idPedido + "\nData da Compra: " + dataCompra
-                + "\n\nProdutos Vendidos: \nidProduto | nomeProduto | nomeCategoria | preco  | taxaImposto | valorImposto | percentualComissao | comissao\n"
+                + "\n\nProdutos Vendidos: \nidProduto | nomeProduto | nomeCategoria | preco  | taxaImposto | valorImposto | percentualComissao | comissao | dataValidade/mesesGarantia\n"
                 + printProdutos() + "\nQuantidade de Produtos Vendidos: "
                 + qtVendidos + "\n\nValor total da compra: R$" + String.format("%.2f", valorTotal)
                 + "\nComissão do vendedor: R$" + String.format("%.2f", comissaoTotal);
@@ -53,23 +53,4 @@ public class Extrato {
 
         return resultado;
     }
-
-
-    //calcular comissão -> preço prod 1 x percentual categoria 1 + ...
-
-    //Extrato
-    //Vendedor: maria madalena
-    //pedido num
-    //lista dos produtos vendidos
-    //quantidade de produtos vendidos
-    //comissao do vendedor: abc
-
-
-//    codigo antigo
-//    for(int i =0; i < pedidos.size(); i++) {
-//        String pedido = pedidos.get(i);
-//        String[] campos = pedido.split(";");
-//        //comissao += Float.parseFloat(campos[2]);
-//    }
-//        return comissao;
 }
