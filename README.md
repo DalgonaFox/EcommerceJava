@@ -6,11 +6,17 @@
   <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white"/>
 </p>
 
-O **E-commerce Java** é um sistema backend desenvolvido para simular as operações de uma loja virtual. A aplicação gerencia o fluxo completo de um e-commerce, desde o cadastro de produtos no catálogo até o processamento de pedidos e gerenciamento de usuários. 
+O **E-commerce Java** é um pequeno sistema desenvolvido para simular as operações de uma loja virtual. O banco de dados é simulado com arquivos .txt que são lidos por uma classe. As classes abstraem as informações do arquivo para criar os objetos utilizados. Por meio dos testes no projeto, é possível verificar essa abstração. A principal funcionalidade é o cálculo de extrato e comissão do vendedor com base em todas as vendas cadastradas (pelo arquivo .txt).
 
-Este projeto foi construído para aplicar conceitos sólidos de Programação Orientada a Objetos (POO) e arquitetura de APIs RESTful.
+Este projeto foi realizado para aplicar conceitos sólidos de Programação Orientada a Objetos (POO).
 
----
+## Conceitos POO
+
+Os pilares e conceitos de Lógica de Programação aplicados no projeto são os seguintes:
+- Abstração: entidades do mundo real modeladas em classes, isolando apenas características úteis ao sistema;
+- Encapsulamento: proteção de classes com atributos private, com acesso através de getters e setters;
+- Herança: utilização de classes abstratas, subclasses e interfaces;
+- Polimorfismo: definição de múltiplas formas de um mesmo método herdado, incluindo sobrescrição com @Override.
 
 ## Tecnologias
 
@@ -19,8 +25,6 @@ As seguintes ferramentas e frameworks foram utilizados na construção do projet
 - **[Java](https://www.oracle.com/java/)** (Linguagem principal)
 - **[Spring Boot](https://spring.io/projects/spring-boot)** (Framework backend)
 - **[Maven](https://maven.apache.org/)** (Gerenciador de dependências)
-
----
 
 ## Como Executar
 
