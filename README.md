@@ -19,8 +19,6 @@ As seguintes ferramentas e frameworks foram utilizados na construção do projet
 - **[Java](https://www.oracle.com/java/)** (Linguagem principal)
 - **[Spring Boot](https://spring.io/projects/spring-boot)** (Framework backend)
 - **[Maven](https://maven.apache.org/)** (Gerenciador de dependências)
-- **Spring Data JPA / Hibernate** (Mapeamento Objeto-Relacional)
-- *Banco de Dados (Ex: H2, MySQL, ou PostgreSQL - ajuste conforme o seu projeto)*
 
 ---
 
