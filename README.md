@@ -6,12 +6,6 @@
   <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white"/>
 </p>
 
-<p align="center">
-  <a href="#-funcionalidades">Funcionalidades</a> •
-  <a href="#-tecnologias">Tecnologias</a> •
-  <a href="#-como-executar">Como Executar</a> •
-</p>
-
 O **E-commerce Java** é um sistema backend desenvolvido para simular as operações de uma loja virtual. A aplicação gerencia o fluxo completo de um e-commerce, desde o cadastro de produtos no catálogo até o processamento de pedidos e gerenciamento de usuários. 
 
 Este projeto foi construído para aplicar conceitos sólidos de Programação Orientada a Objetos (POO) e arquitetura de APIs RESTful.
