@@ -12,15 +12,6 @@ Este projeto foi construído para aplicar conceitos sólidos de Programação Or
 
 ---
 
-## Funcionalidades
-
-- [x] **Gestão de Produtos:** Cadastro, listagem, atualização e remoção de itens do catálogo.
-- [x] **Carrinho de Compras:** Adição e remoção de produtos para um usuário específico.
-- [x] **Gestão de Pedidos:** Processamento e finalização de compras (checkout).
-- [x] **Controle de Usuários:** Cadastro de clientes e autenticação.
-
----
-
 ## Tecnologias
 
 As seguintes ferramentas e frameworks foram utilizados na construção do projeto:
